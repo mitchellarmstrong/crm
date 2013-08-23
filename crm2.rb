@@ -1,12 +1,15 @@
+#require documents
 require "contact2"
 require "database2"
 
+
 class CRM
 
-	def initialize(name) #puts a name on new
+	def initialize(name) #puts a name (doesn't really do anything)
 		@name = name
 	end
 
+#______________main method of program____________
 	def main_menu
 		#initialize my main menu method
 		print_main_menu
@@ -16,7 +19,8 @@ class CRM
 		call_option(user_selected)
 		#starts method call_option and runs an appropriate method based on the variable user_selected
 	end
-	
+
+#_________displays available options to user	
 	def print_main_menu
 		puts "[1] Add a new contact" #available services for user
 		puts "[2] Modify a contact" #available services for user
@@ -26,6 +30,8 @@ class CRM
 		puts "[6] Exit"
 		puts "Enter a number:" #prompts user for number which creates the variable of user_selected
 	end
+
+#___________method to start other methods based on user selection__________
 	
 	def call_option(user_selected) #creates a method that starts one of the user_selected methods
 		add_new_contact if user_selected == 1
@@ -35,7 +41,7 @@ class CRM
 		display_attribute if user_selected == 5
 		exit if user_selected == 6
 		
-		puts "Invalid Entry"
+		puts "Invalid Entry" #alerts user and resets main menu if invalid option inserted
 		return main_menu
 	end
 	
@@ -72,7 +78,7 @@ class CRM
 		end
 	end
 	
-	#________________verify method_________________________
+	#________________verify method (used multiple times)_________________________
 	
 	def verify_id(id)
 		Database.contacts.each do |contact|
@@ -143,11 +149,12 @@ class CRM
 	#________display attribute___________
 	def display_attribute
 		puts "Which attribute would you like to view?"
-			puts "[1] First Name" #available services for user
-			puts "[2] Last Name" #available services for user
+			puts "[1] First Name" 
+			puts "[2] Last Name" 
 			puts "[3] Email"
 			puts "[4] Note"
-			puts "[5] ID" 
+			
+			 
 		attribute_select = gets.chomp.to_i
 		Database.contacts.each do |contact|
 		
@@ -161,10 +168,7 @@ class CRM
 			puts "Email #{contact.id}:#{contact.email}"
 		end
 		if attribute_select == 4
-			puts "Email #{contact.id}:#{contact.note}"
-		end
-		if attribute_select == 5
-			 "Email:#{contact.id}"
+			puts "Note #{contact.id}:#{contact.note}"
 		end
 		
 		end
