@@ -34,7 +34,9 @@ class CRM
 		display_all_contacts if user_selected == 4
 		display_attribute if user_selected == 5
 		exit if user_selected == 6
-		#return main_menu #repeats method if something other is entered
+		
+		puts "Invalid Entry"
+		return main_menu
 	end
 	
 	
@@ -93,7 +95,7 @@ class CRM
 					puts "Last Name: "+ Database.contacts[contact_counter].last_name
 					puts "Email:"+ Database.contacts[contact_counter].email
 					puts"Note:" + Database.contacts[contact_counter].note
-					puts "Are you sure you want to delete? Yes or No"
+					puts "Are you sure you want to modify? Yes or No"
 					delete_confirmation = gets.chomp.downcase
 			if delete_confirmation == "yes"
 					print "First Name?"
@@ -134,8 +136,8 @@ class CRM
 		puts "Email: #{contact.email}"
 		puts "Note: #{contact.note}"
 		puts "ID: #{contact.id}"
-		return main_menu
 		end
+		return main_menu
 	end
 	
 	#________display attribute___________
@@ -150,19 +152,19 @@ class CRM
 		Database.contacts.each do |contact|
 		
 		if attribute_select == 1
-			 puts "#{contact.first_name}"
+			 puts "First Name #{contact.id}:#{contact.first_name}"
 		end
 		if attribute_select == 2
-			puts "#{contact.last_name}"
+			puts "Last Name #{contact.id}:#{contact.last_name}"
 		end
 		if attribute_select == 3
-			puts "#{contact.email}"
+			puts "Email #{contact.id}:#{contact.email}"
 		end
 		if attribute_select == 4
-			puts "#{contact.note}"
+			puts "Email #{contact.id}:#{contact.note}"
 		end
 		if attribute_select == 5
-			 "#{contact.id}"
+			 "Email:#{contact.id}"
 		end
 		
 		end
