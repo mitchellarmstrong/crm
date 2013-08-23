@@ -46,7 +46,7 @@ class CRM
 	end
 	
 	
-	#_______________start of methods____________________
+#_______________start of methods____________________
 	
 	def add_new_contact #process to create a new contact
 			print "First Name?"
@@ -78,7 +78,7 @@ class CRM
 		end
 	end
 	
-	#________________verify method (used multiple times)_________________________
+#________________verify method (used multiple times)_________________________
 	
 	def verify_id(id)
 		Database.contacts.each do |contact|
@@ -133,7 +133,7 @@ class CRM
 	end
 	
 	
-	#_________display all contacts_____________
+#_________display all contacts_____________
 
 	def display_all_contacts
 		Database.contacts.each do |contact|
@@ -146,7 +146,8 @@ class CRM
 		return main_menu
 	end
 	
-	#________display attribute___________
+
+#________display attribute___________
 	def display_attribute
 		puts "Which attribute would you like to view?"
 			puts "[1] First Name" 
@@ -176,7 +177,7 @@ class CRM
 
 	end
 	
-	#________end program_______
+#________end program_______
 	def exit
 		return
 	end
