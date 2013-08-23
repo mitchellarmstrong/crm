@@ -128,10 +128,22 @@ class CRM
 	#_________display all contacts_____________
 
 	def display_all_contacts
-		p Database.contacts
+		Database.contacts.each do |contact|
+		puts "First Name: #{contact.first_name}"
+		puts "Last Name: #{contact.last_name}"
+		puts "Email: #{contact.email}"
+		puts "Note: #{contact.note}"
+		puts "ID: #{contact.id}"
+		return main_menu
+		end
 	end
 	
 	#________display attribute___________
+	
+	#________end program_______
+	def exit
+		return
+	end
 	
 	
 	
