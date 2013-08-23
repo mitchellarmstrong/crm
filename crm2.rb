@@ -139,6 +139,36 @@ class CRM
 	end
 	
 	#________display attribute___________
+	def display_attribute
+		puts "Which attribute would you like to view?"
+			puts "[1] First Name" #available services for user
+			puts "[2] Last Name" #available services for user
+			puts "[3] Email"
+			puts "[4] Note"
+			puts "[5] ID" 
+		attribute_select = gets.chomp.to_i
+		Database.contacts.each do |contact|
+		
+		if attribute_select == 1
+			 puts "#{contact.first_name}"
+		end
+		if attribute_select == 2
+			puts "#{contact.last_name}"
+		end
+		if attribute_select == 3
+			puts "#{contact.email}"
+		end
+		if attribute_select == 4
+			puts "#{contact.note}"
+		end
+		if attribute_select == 5
+			 "#{contact.id}"
+		end
+		
+		end
+		return main_menu
+
+	end
 	
 	#________end program_______
 	def exit
